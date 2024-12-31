@@ -30,15 +30,7 @@ class BankAccount
     return
   end
 
-  def show_balance
-    puts "Please enter your account number: "
-    account_number = gets.to_i
-
-    
-    return @balance
-  end
-
-
+  
 end
 
 @accounts = []
@@ -46,7 +38,6 @@ end
 def create_account
   temp = BankAccount.new 
   @accounts.push(temp)
-  pp @accounts
   puts "Congratulations!! Your new bank account number is: " + @accounts.length.to_s
   return
 end
@@ -65,25 +56,31 @@ end
 selection = 1
 account_number = 0
 
-=begin
+
 while selection > 0 && selection < 6
   dashboard
-  
+  selection = gets.chomp.to_i
   if selection == 1
     create_account
   elsif selection == 2
     puts "Please enter your account number:"
-    account_number = gets.to_i
-
-  puts "ERROR: Please enter a whole number between 1-5:"
-  selection = gets.chomp.to_i
+    account_number = gets.chomp.to_i
+    puts "Your account balance is: " + @accounts[account_number + 1].balance.to_s
+  elsif selection == 3
+    puts "Please enter your account number:"
+    account_number = gets.chomp.to_i
+    @accounts[account_number - 1].deposit
+    
+  elsif selection == 4
+    puts "Please enter your account number:"
+    account_number = gets.chomp.to_i
+    @accounts[account_number - 1].withdraw
+  elsif selection == 5
+    puts "Thank you banking with us. Have an great day!"
+    selection = 5
+  else puts "ERROR: Please enter a whole number between 1-5. Press enter key to try again."
+    wait_for_user_input = gets.chomp.to_i
+    selection = 1
+  end
+return
 end
-=end
-
-create_account
-
-
-create_account
-
-@accounts[0].show_balance
-pp @accounts[0]
