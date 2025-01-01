@@ -11,7 +11,7 @@ class BankAccount
     amount = gets.chomp.to_f
     while amount < 1
        "ERROR: Please enter a value greater than 0: "
-       amount = gets.chomp
+       amount = gets.chomp.to_f
     end 
     pp "amount" + amount.to_s
     pp "@balance" + @balance.to_s
@@ -24,13 +24,11 @@ class BankAccount
 
   def withdraw
     puts "Please enter the amount you would like to withdraw: "
-    amount = gets.chomp
+    amount = gets.chomp.to_f
     while amount - @balance < 0
       puts "Oops! The amount you entered is too high. Please enter an amount at or below: $" + @balance.to_s
-      amount = gets.chomp
+      amount = gets.chomp.to_f
     end
-    pp "amount" + amount.to_s
-    pp "@balance" + @balance.to_s
     @balance = @balance - amount.to_f
     puts "Your transaction was successfully completed. Your new balance is: " + @balance.to_s
     puts "Please press Enter to proceed"
@@ -57,7 +55,7 @@ def create_account
 end
 
 def dashboard
-  puts "Welcome to your Bank Account: What would you like to do today?"
+  puts "Welcome to your Online Bank Account: What would you like to do today?"
   puts "Create Account: 1"
   puts "Check Balance: 2"
   puts "Make a Deposit: 3"
@@ -75,25 +73,40 @@ while selection > 0 && selection < 6
   dashboard
   
   selection = gets.chomp.to_i
-  while selection 
-  
-  
+  while selection < 1 || selection > 6
+    puts "Oops! You can only enter a selection between 1-5. Please try again."
+    selection = gets.chomp.to_i
+  end
+
   if selection == 1
     create_account
   elsif selection == 2
     puts "Please enter your account number:"
     account_number = gets.chomp.to_i
+    while @accounts[account_number - 1].nil?
+      puts "ERROR!! Invalid bank account number. Please enter a valid account number: "
+      account_number = gets.chomp.to_i
+      
+    end 
     puts "Your account balance is: " + @accounts[account_number - 1].show_balance.to_s
     puts "Please press Enter to proceed"
     waiting_for_user_input = gets
   elsif selection == 3
     puts "Please enter your account number:"
     account_number = gets.chomp.to_i
+    while @accounts[account_number - 1].nil?
+      puts "ERROR!! Invalid bank account number. Please enter a valid account number: "
+      account_number = gets.chomp.to_i
+    end
     @accounts[account_number - 1].deposit
     
   elsif selection == 4
     puts "Please enter your account number:"
     account_number = gets.chomp.to_i
+    while @accounts[account_number - 1].nil?
+      puts "ERROR!! Invalid bank account number. Please enter a valid account number: "
+      account_number = gets.chomp.to_i
+    end
     @accounts[account_number - 1].withdraw
   elsif selection == 5
     puts "Thank you for banking with us. Have a great day!"
@@ -104,3 +117,4 @@ while selection > 0 && selection < 6
   end
 
 end
+
