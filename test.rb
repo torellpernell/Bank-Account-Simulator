@@ -72,7 +72,7 @@ while selection > 0 && selection < 6
     puts "Please enter your account number:"
     account_number = gets.chomp
     
-    while !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
+    while account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
       pp account_number
       puts "ERROR!! Invalid bank account number. Please enter a valid account number: "
       account_number = gets.chomp
@@ -84,18 +84,20 @@ while selection > 0 && selection < 6
   elsif selection == 3
     puts "Please enter your account number:"
     account_number = gets.chomp
-    while !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
+    while account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
+      pp account_number
       puts "ERROR!! Invalid bank account number. Please enter a valid account number: "
-      account_number = gets.chomp.to_i
+      account_number = gets.chomp
+      
     end
-    @accounts[account_number - 1].deposit
+    @accounts[account_number.to_i - 1].deposit
     
   elsif selection == 4
     puts "Please enter your account number:"
-    account_number = gets
-    while !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
+    account_number = gets.chomp
+    while account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
       puts "ERROR!! Invalid bank account number. Please enter a valid account number: "
-      account_number = gets.chomp.to_i
+      account_number = gets.chomp
     end
     @accounts[account_number.to_i - 1].withdraw
   elsif selection == 5
