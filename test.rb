@@ -101,7 +101,7 @@ while selection > 0 && selection < 6
     end
     @accounts[account_number.to_i - 1].withdraw
   elsif selection == 5
-    puts "Thank you for banking with us. Have a great day!"
+    puts "Thank you for banking with us. Have a great holiday season!"
     return
   else puts "ERROR: Please enter a whole number between 1-5. Press enter key to try again."
     wait_for_user_input = gets.chomp.to_i
