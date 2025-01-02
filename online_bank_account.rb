@@ -34,10 +34,6 @@ class BankAccount
     return @balance
   end
 
-  def show_balance
-    return @balance
-  end
-
   def deposit_test(amount)
     @balance = @balance + amount.to_f
     return @balance
@@ -47,17 +43,16 @@ class BankAccount
     @balance = @balance - amount.to_f
     return @balance
   end
-
 end
-
-
 
 # array used to contain created new BankAccount objects
 @accounts = []
 
+# variables used to store menu selection number and account number
 selection = 1
 account_number = 0
 
+# begin program
 while selection > 0 && selection < 6
   puts "Welcome to your Online Bank Account: What would you like to do today?"
   puts "Create Account: 1"
