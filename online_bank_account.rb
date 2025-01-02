@@ -6,7 +6,7 @@ class BankAccount
     return
   end
 
-  def deposit(amount)
+  def deposit
     puts "Please enter the amount you would like to deposit: "
     amount = gets.chomp.to_f
     while amount < 1
@@ -20,7 +20,7 @@ class BankAccount
     return
   end
 
-  def withdraw(amount)
+  def withdraw
     puts "Please enter the amount you would like to withdraw from: $" + @balance.to_s
     amount = gets.chomp.to_f
     while @balance - amount < 0
