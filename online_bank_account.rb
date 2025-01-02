@@ -99,5 +99,6 @@ while selection > 0 && selection < 6
     return
   else puts "ERROR: Please enter a whole number between 1-5. Press enter key to try again."
     wait_for_user_input = gets.chomp.to_i
-    selection = 1   end
+    selection = 1   
+  end
 end
