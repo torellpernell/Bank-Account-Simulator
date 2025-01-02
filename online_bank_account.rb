@@ -6,7 +6,7 @@ class BankAccount
     return
   end
 
-  def deposit
+  def deposit(amount)
     puts "Please enter the amount you would like to deposit: "
     amount = gets.chomp.to_f
     while amount < 1
@@ -17,10 +17,10 @@ class BankAccount
     puts "Your transaction was succesfully completed. Your new balance is: $" + @balance.to_s
     puts "Please press Enter to proceed..."
     waiting_for_user_input = gets
-    return
+    return @balance
   end
 
-  def withdraw
+  def withdraw(amount)
     puts "Please enter the amount you would like to withdraw from: $" + @balance.to_s
     amount = gets.chomp.to_f
     while @balance - amount < 0
@@ -31,13 +31,26 @@ class BankAccount
     puts "Your transaction was successfully completed. Your new balance is: $" + @balance.to_s
     puts "Please press Enter to proceed..."
     waiting_for_user_input = gets
-    return
+    return @balance
   end
 
   def show_balance
     return @balance
   end
+
+  def deposit_test(amount)
+    @balance = @balance + amount.to_f
+    return @balance
+  end
+
+  def withdraw_test(amount)
+    @balance = @balance - amount.to_f
+    return @balance
+  end
+
 end
+
+
 
 # array used to contain created new BankAccount objects
 @accounts = []
