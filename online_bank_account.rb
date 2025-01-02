@@ -80,31 +80,35 @@ while selection > 0 && selection < 6
   elsif selection == 2
     puts "Please enter your account number:"
     account_number = gets.chomp
-    while account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
-      pp account_number
-      puts "ERROR!! Invalid bank account number. Please enter a valid account number: "
-      account_number = gets.chomp
+    if account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
+      puts "ERROR!! Invalid bank account number. Please enter a valid account number or Create a new account."
+      puts "Please press Enter to proceed.."
+      waiting_for_user_input = gets
+    else
+      puts "Your account balance is: " + @accounts[account_number.to_i - 1].show_balance.to_s
+      puts "Please press Enter to proceed..."
+      waiting_for_user_input = gets
     end
-    puts "Your account balance is: " + @accounts[account_number.to_i - 1].show_balance.to_s
-    puts "Please press Enter to proceed..."
-    waiting_for_user_input = gets
   elsif selection == 3
     puts "Please enter your account number:"
     account_number = gets.chomp
-    while account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
-      pp account_number
-      puts "ERROR!! Invalid bank account number. Please enter a valid account number: "
-      account_number = gets.chomp
+    if account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
+      puts "ERROR!! Invalid bank account number. Please enter a valid account number or Create a new account."
+      puts "Please press Enter to proceed.."
+      waiting_for_user_input = gets
+    else
+      @accounts[account_number.to_i - 1].deposit
     end
-    @accounts[account_number.to_i - 1].deposit
   elsif selection == 4
     puts "Please enter your account number:"
     account_number = gets.chomp
-    while account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
-      puts "ERROR!! Invalid bank account number. Please enter a valid account number: "
-      account_number = gets.chomp
+    if account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
+      puts "ERROR!! Invalid bank account number. Please enter a valid account number or Create a new account."
+      puts "Please press Enter to proceed.."
+      waiting_for_user_input = gets
+    else
+      @accounts[account_number.to_i - 1].withdraw
     end
-    @accounts[account_number.to_i - 1].withdraw
   elsif selection == 5
     puts "Thank you for banking with us. Have a great holiday season!"
     return
