@@ -17,7 +17,7 @@ class BankAccount
     puts "Your transaction was succesfully completed. Your new balance is: $" + @balance.to_s
     puts "Please press Enter to proceed..."
     waiting_for_user_input = gets
-    return @balance
+    return
   end
 
   def withdraw(amount)
@@ -31,6 +31,10 @@ class BankAccount
     puts "Your transaction was successfully completed. Your new balance is: $" + @balance.to_s
     puts "Please press Enter to proceed..."
     waiting_for_user_input = gets
+    return
+  end
+
+  def show_balance
     return @balance
   end
 
