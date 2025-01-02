@@ -1,5 +1,6 @@
-# ruby-cli-template
+# Online Bank Account CLI
+The Online Bank Account CLI app provides users with a simple, command-line interface to perform basic bank account deposits and withdrawals.
 
-Use this repository as a template for your Ruby CLI (command line interface) project.
+## Usage
+- Enter `ruby online_bank_account.rb` in the terminal
 
-- Ruby version: `3.2.1`
