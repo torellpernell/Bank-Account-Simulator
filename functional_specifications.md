@@ -1,18 +1,19 @@
-# Calculator CLI Functional Specification
-The Calculator CLI app provides users with a simple, command-line interface to perform basic arithmetic operations.
+# Online Bank Account CLI Functional Specification
+The online bank account app provides users with a simple, command-line interface to perform basic bank account deposits and withdrawals.
 
 ## User Stories
 
 ### Basic Operations
-- As a user, I want to add two numbers, so that I can calculate their sum.
-- As a user, I want to subtract one number from another, so that I can calculate the difference.
+- As a user, I want to make a deposit to an account, so that I can make a credit on the account.
+- As a user, I want to make a withdrawal from an account, so that I make a debit on the account.
+- As a user, I want to have the capability to view my account balance.
 
 ### Continuous Operations
-- As a user, I want to perform multiple calculations without restarting the application, so that I can use the calculator efficiently.
+- As a user, I want to perform multiple transactions without restarting the application, so that I can use the application more efficiently.
 
 ## Functional Requirements
-- The calculator must prompt the user for an operation (addition and subtraction).
-- The calculator must prompt the user for two numbers to perform the operation on.
-- The calculator must display the result of the operation.
-- The calculator must handle invalid input gracefully (e.g., non-numeric input).
-- The calculator must allow the user to perform another calculation after one completes.
+- The online bank account app must prompt the user for a banking operation ( deposit/withdraw )
+- The online bank account app must prompt the user for an account number.
+- The online bank account app must display the result of the operation.
+- The online bank account app must handle invalid input gracefully (e.g., non-numeric input).
+- The online bank account app must allow the user to perform another transaction after one completes.
