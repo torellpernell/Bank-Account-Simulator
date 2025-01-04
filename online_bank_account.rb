@@ -63,10 +63,11 @@ while selection > 0 && selection < 6
   puts "Check Balance: 2"
   puts "Make a Deposit: 3"
   puts "Make a Withdrawal: 4"
-  puts "Quit application: 5"
+  puts "Close Account: 5"
+  puts "Quit application: 6"
 
   selection = gets.chomp.to_i
-  while selection < 1 || selection > 5
+  while selection < 1 || selection > 6
     puts "Oops! You can only enter a selection between 1-5. Please try again."
     selection = gets.chomp.to_i
   end
@@ -81,7 +82,7 @@ while selection > 0 && selection < 6
     puts "Please enter your account number:"
     account_number = gets.chomp
     if account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
-      puts "ERROR!! Invalid bank account number. Please enter a valid account number or Create a new account."
+      puts "ERROR!! Invalid bank account number. Please enter a valid account number, or Create a new account."
       puts "Please press Enter to proceed.."
       waiting_for_user_input = gets
     else
@@ -93,7 +94,7 @@ while selection > 0 && selection < 6
     puts "Please enter your account number:"
     account_number = gets.chomp
     if account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
-      puts "ERROR!! Invalid bank account number. Please enter a valid account number or Create a new account."
+      puts "ERROR!! Invalid bank account number. Please enter a valid account number, or Create a new account."
       puts "Please press Enter to proceed.."
       waiting_for_user_input = gets
     else
@@ -103,13 +104,30 @@ while selection > 0 && selection < 6
     puts "Please enter your account number:"
     account_number = gets.chomp
     if account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
-      puts "ERROR!! Invalid bank account number. Please enter a valid account number or Create a new account."
+      puts "ERROR!! Invalid bank account number. Please enter a valid account number, or Create a new account."
       puts "Please press Enter to proceed.."
       waiting_for_user_input = gets
     else
       @accounts[account_number.to_i - 1].withdraw
     end
   elsif selection == 5
+    puts "Please enter your account number:"
+    account_number = gets.chomp
+    if account_number.to_i == 0 || !account_number.to_s.match(/\d/) || @accounts[account_number.to_i - 1].nil?
+      puts "ERROR!! Invalid bank account number. Please enter a valid account number, or Create a new account."
+      puts "Please press Enter to proceed.."
+      waiting_for_user_input = gets
+    elsif @accounts[account_number.to_i - 1].show_balance.to_f > 0
+      puts "Information! You still have a balance remaining in your account: $" + @accounts[account_number.to_i - 1].show_balance.to_s + ". You must have a zero balance in your account before closing it."
+      puts "Please press Enter to proceed.."
+      waiting_for_user_input = gets
+    else
+      @accounts[account_number.to_i - 1] = nil
+      puts "Your account was successfully closed. Have a great day!"
+      puts "Please press Enter to proceed..."
+      waiting_for_user_input = gets
+    end
+  elsif selection == 6
     puts "Thank you for banking with us. Have a great holiday season!"
     return
   else puts "ERROR: Please enter a whole number between 1-5. Press enter key to try again."
