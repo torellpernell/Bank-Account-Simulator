@@ -4,8 +4,10 @@ The online bank account app provides users with a simple, command-line interface
 ## User Stories
 
 ### Basic Operations
-- As a user, I want to make a deposit to an account, so that I can make a credit on the account.
-- As a user, I want to make a withdrawal from an account, so that I make a debit on the account.
+- As a user, I want to make a deposit to my account, so that I can make a credit on the account.
+- As a user, I want to make a withdrawal from my account, so that I make a debit on the account.
+- As a user, I want to have the capability to open an account.
+- As a user, I want to have the capability to close my account.
 - As a user, I want to have the capability to view my account balance.
 
 ### Continuous Operations
