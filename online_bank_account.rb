@@ -24,7 +24,7 @@ class BankAccount
     puts "Please enter the amount you would like to withdraw from: $" + @balance.to_s
     amount = gets.chomp.to_f
     while @balance - amount < 0
-      puts "Oops! The amount you entered is too high. Please enter an amount at or below: $" + @balance.to_s
+      puts "Oops! The amount you entered is too high. Please enter an amount at or below: $" + @balance.to_s + ", then press Enter."
       amount = gets.chomp.to_f
     end
     @balance = @balance - amount.to_f
@@ -68,7 +68,7 @@ while selection > 0 && selection < 6
 
   selection = gets.chomp.to_i
   while selection < 1 || selection > 6
-    puts "Oops! You can only enter a selection between 1-5. Please try again."
+    puts "Oops! You can only enter a selection between 1-6. Please try again."
     selection = gets.chomp.to_i
   end
 
